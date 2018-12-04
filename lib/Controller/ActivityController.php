@@ -34,6 +34,7 @@ use OCA\Dashboard\Service\DashboardService;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\IRequest;
+use OCP\IGroupManager;
 use OCA\GroupFolders\Folder\FolderManager;
 
 /**
@@ -66,6 +67,8 @@ class ActivityController extends Controller {
 		parent::__construct($appName, $request);
 		$this->dashboardService = $dashboardService;
 		$this->activityService = $activityService;
+		$this->groupManager = $this->createMock(IGroupManager::class);
+		$this->manager = new FolderManager(\OC::$server->getDatabaseConnection(), $this->groupManager);
 	}
 
 	/**
