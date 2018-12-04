@@ -62,12 +62,11 @@ class ActivityController extends Controller {
 	 */
 	public function __construct(
 		$appName, IRequest $request, DashboardService $dashboardService,
-		ActivityService $activityService
+		ActivityService $activityService, IGroupManager $groupManager
 	) {
 		parent::__construct($appName, $request);
 		$this->dashboardService = $dashboardService;
 		$this->activityService = $activityService;
-		$this->groupManager = $this->createMock(IGroupManager::class);
 		$this->manager = new FolderManager(\OC::$server->getDatabaseConnection(), $this->groupManager);
 	}
 
