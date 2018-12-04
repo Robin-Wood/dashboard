@@ -67,7 +67,7 @@ class ActivityController extends Controller {
 		parent::__construct($appName, $request);
 		$this->dashboardService = $dashboardService;
 		$this->activityService = $activityService;
-		$this->manager = new FolderManager(\OC::$server->getDatabaseConnection(), $this->groupManager);
+		//$this->manager = new FolderManager(\OC::$server->getDatabaseConnection(), $this->groupManager);
 	}
 
 	/**
