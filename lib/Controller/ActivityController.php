@@ -34,8 +34,6 @@ use OCA\Dashboard\Service\DashboardService;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\IRequest;
-use OCP\IGroupManager;
-use OCA\GroupFolders\Folder\FolderManager;
 
 /**
  * Description of ActivityController
@@ -62,12 +60,11 @@ class ActivityController extends Controller {
 	 */
 	public function __construct(
 		$appName, IRequest $request, DashboardService $dashboardService,
-		ActivityService $activityService, IGroupManager $groupManager
+		ActivityService $activityService
 	) {
 		parent::__construct($appName, $request);
 		$this->dashboardService = $dashboardService;
 		$this->activityService = $activityService;
-		//$this->manager = new FolderManager(\OC::$server->getDatabaseConnection(), $this->groupManager);
 	}
 
 	/**
@@ -82,4 +79,5 @@ class ActivityController extends Controller {
 		$activityData = $this->activityService->getFilesFromActivity(TRUE);
 		return new DataResponse(['data' => $activityData]);
 	}
+
 }
