@@ -34,6 +34,7 @@ use OCA\Dashboard\Service\DashboardService;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\IRequest;
+use OCA\GroupFolders\Folder\FolderManager;
 
 /**
  * Description of ActivityController
@@ -79,5 +80,4 @@ class ActivityController extends Controller {
 		$activityData = $this->activityService->getFilesFromActivity(TRUE);
 		return new DataResponse(['data' => $activityData]);
 	}
-
 }
